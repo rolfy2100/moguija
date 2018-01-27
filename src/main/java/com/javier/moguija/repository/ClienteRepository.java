@@ -8,4 +8,5 @@ import com.javier.moguija.domain.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{	
 	
+    
 }

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+    <body>
+        <th:block th:each="cliente : ${clientes}">
+            <p th:text="${cliente.nombre}"></p>
+        </th:block>
+        <div>TODO write content</div>
+    </body>
+</html>
