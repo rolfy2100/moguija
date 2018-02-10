@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layouts/layout">
+    <body>
+        <section layout:fragment="contenido-view">
+            <div class="container mt-5">
+                <div class="mt-5">
+                    <div class="col-md-4">
+                        <h2>
+                            Productos
+                        </h2>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="State"/>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Precio por mayor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <th:block th:each="producto : ${productos}">
+                                <tr>
+                                    <td th:text="${producto.modelo}"></td>
+                                    <td th:text="${producto.marca}"></td>
+                                    <td th:text="${producto.precioCosto}"></td>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

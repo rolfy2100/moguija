@@ -8,6 +8,7 @@ package com.javier.moguija.service.impl;
 import com.javier.moguija.domain.Producto;
 import com.javier.moguija.repository.ProductoRepository;
 import com.javier.moguija.service.ProductoService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,31 +22,26 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public Producto guardar(Producto producto) {
-
         if (producto.getMarca() == null || producto.getMarca().equals("")) {
             throw new IllegalArgumentException("Complete el campo marca");
         }
-
         if (producto.getModelo() == null || producto.getModelo().equals("")) {
             throw new IllegalArgumentException("Complete el campo modelo");
         }
-
-        try {
-            if (producto.getPrecioCosto() == 0) {
-                throw new IllegalArgumentException("Complete el campo precio costo");
-            }
-        } catch (NullPointerException precioCostoNulo) {
-            throw new IllegalArgumentException("Complete el campo precio costo", precioCostoNulo);
-        }
-        try {
-            if (producto.getPrecioVenta() == 0) {
-                throw new IllegalArgumentException("Complete el campo precio venta");
-            }
-        } catch (NullPointerException precioCostoNulo) {
-            throw new IllegalArgumentException("Complete el campo precio venta", precioCostoNulo);
+        if (producto.getPrecioCosto() == null || producto.getPrecioCosto() <= 0) {
+            throw new IllegalArgumentException("Complete el campo precio de costo");
         }
 
+        if (producto.getPorcentajeIncrementoPrecioCosto() == null || producto.getPorcentajeIncrementoPrecioCosto() <= 0) {
+            throw new IllegalArgumentException("El porcentaje de ganancia no puede ser cero, negativo o estar vacio");
+        }
+        
         return productoRepository.save(producto);
+    }
+
+    @Override
+    public List<Producto> buscarTodos() {
+        return productoRepository.findAll();
     }
 
 }

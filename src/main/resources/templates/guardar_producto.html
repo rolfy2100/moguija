@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <body>
         <div>
             <form action="/producto" method="POST">
-                <label for="modelo">Modleo</label>
-                <input name="modelo" id="modelo" type="text"/>
-
+                
                 <label for="marca">Marca</label>
                 <input name="marca" id="marca" type="text"/>
+                
+                <label for="modelo">Modelo</label>
+                <input name="modelo" id="modelo" type="text"/>
 
                 <label for="precioCosto">Precio de Costo</label>
                 <input name="precioCosto" id="precioCosto" type="number"/>
 
-                <label for="precioVenta">Precio de Venta</label>
-                <input type="number" name="precioVenta" id="precioVenta"/>
-            
+                <label for="porcentajeIncrementoPrecioCosto">Porcentaje de Ganancia</label>
+                <input type="number" name="porcentajeIncrementoPrecioCosto" id="porcentajeIncrementoPrecioCosto"/>
+
                 <input type="submit" value="Cargar Producto"/>
             </form>
         </div>

@@ -16,5 +16,5 @@ public class Producto {
     private String modelo;
     private String marca;
     private Double precioCosto;
-    private Double precioVenta;
+    private Double porcentajeIncrementoPrecioCosto;
 }

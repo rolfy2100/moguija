@@ -15,9 +15,8 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping("/")
+    @GetMapping("/cliente/alta")
     public String home() {
-
         return "index";
     }
 
@@ -29,10 +28,8 @@ public class ClienteController {
 
     @GetMapping("/cliente")
     public String verClientes(Model model) {
-
         List<Cliente> clientes = clienteService.buscarTodos();
         model.addAttribute("clientes", clientes);
         return "clientes";
     }
-    
 }
